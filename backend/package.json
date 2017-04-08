@@ -1,0 +1,50 @@
+{
+  "name": "5m-acc",
+  "description": "Create a new Bank Account, in just FIVE minutes!",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "1.4.3",
+    "cors": "^2.7.1",
+    "feathers": "^2.1.1",
+    "feathers-authentication": "^0.7.12",
+    "feathers-authentication-jwt": "^0.3.1",
+    "feathers-authentication-local": "^0.3.3",
+    "feathers-authentication-management": "^0.1.6",
+    "feathers-errors": "^2.6.2",
+    "feathers-hooks": "^1.8.1",
+    "feathers-hooks-common": "^2.0.3",
+    "feathers-mongoose": "^5.0.3",
+    "feathers-rest": "^1.7.1",
+    "feathers-socketio": "^1.5.2",
+    "feathers-sync": "^0.1.2",
+    "graphql": "^0.9.1",
+    "graphql-tools": "^0.10.1",
+    "jsonwebtoken": "^7.1.9",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.8.2",
+    "passport": "^0.3.2",
+    "pretty-error": "2.0.2",
+    "rethinkdbdash": "^2.3.28",
+    "socket.io": "^1.4.8",
+    "socket.io-client": "^1.4.8",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-latest": "^6.24.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "eslint": "^3.15.0",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.1",
+    "source-map-support": "^0.4.11",
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "start": "npm-run-all --parallel dev:*",
+    "dev:watcher": "webpack --watch",
+    "dev:nodemon": "nodemon --watch ./build ./build/bundle.js"
+  }
+}
