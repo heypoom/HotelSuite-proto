@@ -106,13 +106,13 @@ var _handler = __webpack_require__(8);
 
 var _handler2 = _interopRequireDefault(_handler);
 
-var _winston = __webpack_require__(13);
+var _winston = __webpack_require__(14);
 
 var _cors = __webpack_require__(7);
 
 var _cors2 = _interopRequireDefault(_cors);
 
-var _path = __webpack_require__(12);
+var _path = __webpack_require__(13);
 
 var _path2 = _interopRequireDefault(_path);
 
@@ -203,7 +203,19 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 exports.default = debug;
 
+var _mqtt = __webpack_require__(12);
+
+var _mqtt2 = _interopRequireDefault(_mqtt);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// const MQTT_URL = "mqtt://localhost:1883"
+
+var client = _mqtt2.default.connect();
+
+client.subscribe("control");
 
 var DebugService = function () {
   function DebugService() {
@@ -212,6 +224,7 @@ var DebugService = function () {
     this.find = function () {
       // TODO: Do something
       console.log("INCOMING CHECK-IN REQUEST");
+      // client.publish("control", "2")
       return Promise.resolve({
         status: 200,
         name: "Phoomparin Mano"
@@ -220,9 +233,17 @@ var DebugService = function () {
 
     this.create = function (_ref) {
       var device = _ref.device,
-          state = _ref.state;
+          _ref$state = _ref.state,
+          state = _ref$state === undefined ? false : _ref$state;
 
       console.log("DEVICE " + device + " STATE CHANGE to " + state);
+
+      if (state) {
+        client.publish("control", "1");
+      } else {
+        client.publish("control", "3");
+      }
+
       return Promise.resolve({
         status: 200,
         mode: state,
@@ -291,10 +312,16 @@ module.exports = require("feathers-socketio");
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = require("path");
+module.exports = require("mqtt");
 
 /***/ }),
 /* 13 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("winston");

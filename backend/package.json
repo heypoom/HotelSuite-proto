@@ -22,6 +22,7 @@
     "jsonwebtoken": "^7.1.9",
     "lodash": "^4.17.4",
     "mongoose": "^4.8.2",
+    "mqtt": "^2.6.0",
     "passport": "^0.3.2",
     "pretty-error": "2.0.2",
     "rethinkdbdash": "^2.3.28",

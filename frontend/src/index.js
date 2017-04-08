@@ -11,6 +11,8 @@ if (module.hot)
 
 window.api = api
 
+// alert(`${location.protocol}//${location.hostname}:3001`)
+
 ReactDOM.render(
   <App />,
   document.getElementById("root")
