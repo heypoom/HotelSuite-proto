@@ -102,21 +102,17 @@ var _feathersSocketio = __webpack_require__(11);
 
 var _feathersSocketio2 = _interopRequireDefault(_feathersSocketio);
 
-var _feathersSync = __webpack_require__(12);
-
-var _feathersSync2 = _interopRequireDefault(_feathersSync);
-
 var _handler = __webpack_require__(8);
 
 var _handler2 = _interopRequireDefault(_handler);
 
-var _winston = __webpack_require__(14);
+var _winston = __webpack_require__(13);
 
 var _cors = __webpack_require__(7);
 
 var _cors2 = _interopRequireDefault(_cors);
 
-var _path = __webpack_require__(13);
+var _path = __webpack_require__(12);
 
 var _path2 = _interopRequireDefault(_path);
 
@@ -190,8 +186,6 @@ var app = (0, _feathers2.default)();
 app.configure(_middleware2.default);
 app.configure(_services2.default);
 
-console.log("info", process.env.NODE_ENV);
-
 app.listen(3001);
 
 /***/ }),
@@ -216,7 +210,24 @@ var DebugService = function () {
     _classCallCheck(this, DebugService);
 
     this.find = function () {
-      return Promise.resolve({ node: "OK" });
+      // TODO: Do something
+      console.log("INCOMING CHECK-IN REQUEST");
+      return Promise.resolve({
+        status: 200,
+        name: "Phoomparin Mano"
+      });
+    };
+
+    this.create = function (_ref) {
+      var device = _ref.device,
+          state = _ref.state;
+
+      console.log("DEVICE " + device + " STATE CHANGE to " + state);
+      return Promise.resolve({
+        status: 200,
+        mode: state,
+        of: device
+      });
     };
   }
 
@@ -280,16 +291,10 @@ module.exports = require("feathers-socketio");
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = require("feathers-sync");
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
 module.exports = require("path");
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("winston");

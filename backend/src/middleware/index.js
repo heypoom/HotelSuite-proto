@@ -2,7 +2,6 @@ import feathers from "feathers"
 import hooks from "feathers-hooks"
 import rest from "feathers-rest"
 import socketio from "feathers-socketio"
-import sync from "feathers-sync"
 import errorHandler from "feathers-errors/handler"
 
 import {Logger, transports} from "winston"
